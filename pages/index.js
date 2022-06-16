@@ -262,10 +262,11 @@ export default function Home() {
     const web3Provider = new providers.Web3Provider(provider);
 
     // If user is not connected to the Rinkeby network, let them know and throw an error
-    const { chainId } = await web3Provider.getNetwork();
-    if (chainId !== 4) {
-      window.alert("Change the network to Rinkeby");
-      throw new Error("Change network to Rinkeby");
+    const { chainId, name } = await web3Provider.getNetwork();
+    console.log('network=>', chainId)
+    if (chainId !== 999) {
+      window.alert("Change the network to Wanchain");
+      throw new Error("Change network to Wanchain");
     }
 
     if (needSigner) {
@@ -298,7 +299,7 @@ export default function Home() {
       // Assign the Web3Modal class to the reference object by setting it's `current` value
       // The `current` value is persisted throughout as long as this page is open
       web3ModalRef.current = new Web3Modal({
-        network: "rinkeby",
+        network: "tesnetwan",
         providerOptions: {},
         disableInjectedProvider: false,
       });
@@ -378,9 +379,9 @@ export default function Home() {
       </Head>
       <div className={styles.main}>
         <div>
-          <h1 className={styles.title}>Welcome to Crypto Wancash ICO!</h1>
+          <h1 className={styles.title}>Welcome to Wancash ICO!</h1>
           <div className={styles.description}>
-            You can claim or mint Crypto Wancash tokens here
+            You can claim or mint Wancash tokens here
           </div>
           {walletConnected ? (
             <div>
