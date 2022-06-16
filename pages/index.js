@@ -140,7 +140,7 @@ export default function Home() {
       // wait for the transaction to get mined
       await tx.wait();
       setLoading(false);
-      window.alert("Sucessfully minted Crypto Dev Tokens");
+      window.alert("Sucessfully minted Wancash Tokens");
       await getBalanceOfCryptoDevTokens();
       await getTotalTokensMinted();
       await getTokensToBeClaimed();
@@ -168,7 +168,7 @@ export default function Home() {
       // wait for the transaction to get mined
       await tx.wait();
       setLoading(false);
-      window.alert("Sucessfully claimed Crypto Dev Tokens");
+      window.alert("Sucessfully claimed Wancash Tokens");
       await getBalanceOfCryptoDevTokens();
       await getTotalTokensMinted();
       await getTokensToBeClaimed();
@@ -264,9 +264,9 @@ export default function Home() {
     // If user is not connected to the Rinkeby network, let them know and throw an error
     const { chainId, name } = await web3Provider.getNetwork();
     console.log('network=>', chainId)
-    if (chainId !== 999) {
-      window.alert("Change the network to Wanchain");
-      throw new Error("Change network to Wanchain");
+    if (chainId !== 97) {
+      window.alert("Change the network to Binance Smart Chain");
+      throw new Error("Change network to Binance Smart Chain");
     }
 
     if (needSigner) {
@@ -299,7 +299,7 @@ export default function Home() {
       // Assign the Web3Modal class to the reference object by setting it's `current` value
       // The `current` value is persisted throughout as long as this page is open
       web3ModalRef.current = new Web3Modal({
-        network: "tesnetwan",
+        network: "bsc",
         providerOptions: {},
         disableInjectedProvider: false,
       });
